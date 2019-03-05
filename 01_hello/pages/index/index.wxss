@@ -1,0 +1,16 @@
+/**index.wxss**/
+.index_container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+
+  background-color: #8ed145;
+}
+
+.index_img {
+  width: 300rpx;
+  height: 350rpx;
+  border-radius: 150rpx;
+}

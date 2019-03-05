@@ -1,0 +1,7 @@
+/* pages/list/list.wxss */
+@import "listTemplate/listTemplate.wxss";
+.list_box swiper,
+.list_box swiper swiper-item image{
+  width: 100%;
+  height: 480rpx;
+}

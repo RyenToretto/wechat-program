@@ -1,0 +1,15 @@
+<!--pages/list/list.wxml-->
+<import src="listTemplate/listTemplate.wxml" />
+<view class="list_box">
+  <swiper indicator-dots autoplay circular indicator-color="deeppink">
+    <swiper-item><image src="/images/detail/carousel/01.jpg"></image></swiper-item>
+    <swiper-item><image src="/images/detail/carousel/02.jpg"></image></swiper-item>
+    <swiper-item><image src="/images/detail/carousel/03.jpg"></image></swiper-item>
+    <swiper-item><image src="/images/detail/carousel/04.jpg"></image></swiper-item>
+  </swiper>
+  <block wx:for="{{liItems}}" wx:key="{{index}}">
+    <view catchtap="toItemDetail" data-index='{{index}}'>
+      <template is="list_item" data="{{...item}}"></template>
+    </view>
+  </block>
+</view>

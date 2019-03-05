@@ -1,0 +1,49 @@
+/* pages/list/listTemplate/listTemplate.wxss */
+.list_item_box {
+  width: 100%;
+  margin: 60rpx 0;
+  border: 2rpx solid #ccc;
+  color: #000;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.item_date image {
+  width: 60rpx;
+  height: 60rpx;
+  margin-right: 20rpx;
+}
+
+.item_info image {
+  width: 32rpx;
+  height: 32rpx;
+  margin-left: 20rpx;
+}
+
+.item_date,
+.item_title,
+.item_img,
+.item_content,
+.item_info{
+  width: 100%;
+  margin-bottom: 30rpx;
+  padding-left: 20rpx;
+}
+
+.item_date{
+  margin-top: 30rpx;
+  padding-left: 20rpx;
+  display: flex;
+  align-items: center;
+}
+
+.item_img{
+  padding-left: 0rpx;
+}
+
+.item_content {
+  text-indent: 2em;
+  letter-spacing: 4rpx;
+}
