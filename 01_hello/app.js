@@ -1,2 +1,7 @@
 //app.js
-App({})
+
+App({
+  data: {
+    curArticleIndex: -1
+  }
+})

@@ -3,6 +3,11 @@
   "version": "1.0",
   "dependencies": {
     "koa": "^2.7.0",
-    "koa-router": "^7.4.0"
+    "koa-router": "^7.4.0",
+    "mongoose": "^5.4.17",
+    "nodemon": "^1.18.10"
+  },
+  "scripts": {
+    "start": "nodemon server.js"
   }
 }

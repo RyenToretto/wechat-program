@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <view class="index_container">
   <text class="index_word">你知道我在等你吗</text>
-  <image class="index_img" src="/images/index/index_logo.jpeg"></image>
+  <image class="index_img" src="/images/index/index_logo.jpg"></image>
   <view class="index_btn">
     <text class="index_btn_word" bindtap="toStart">{{btnWord}}</text>
   </view>

@@ -1,5 +1,7 @@
 // pages/list/detail/detail.js
-const myData = require("../../../datas/list-data.js")
+const myData = require("../../../datas/list-data.js");
+const appData = getApp();
+
 Page({
 
   /**
@@ -8,7 +10,7 @@ Page({
   data: {
     article: {},
     articleIndex: -1,
-
+    
     isCollected: false,
     isPlay: false
   },
@@ -16,14 +18,13 @@ Page({
     const isPlay = !this.data.isPlay;
     this.setData({isPlay});
 
-    if(isPlay){
-      const musicManager= wx.getBackgroundAudioManager();
-      const {dataUrl, title, coverImgUrl} = this.data.article.music;
-      musicManager.src = dataUrl, title, coverImgUrl
-      musicManager.title = title
-      musicManager.coverImgUrl = coverImgUrl
-    }else{
-      
+    const musicManager = wx.getBackgroundAudioManager()
+    if (isPlay) {
+      const { dataUrl } = this.data.article.music;
+      musicManager.src = dataUrl
+      musicManager.play();
+    } else {
+      musicManager.pause();
     }
   },
   collectArticle () {
@@ -60,6 +61,25 @@ Page({
         isCollected
       })
     }
+    
+    const { title, coverImgUrl } = this.data.article.music;
+    const musicManager = wx.getBackgroundAudioManager()
+    musicManager.title = title
+    musicManager.coverImgUrl = coverImgUrl
+    musicManager.onPlay(()=>{
+      this.setData({isPlay: true})
+    })
+    musicManager.onPause(() => {
+      this.setData({ isPlay: false })
+    })
+
+    if (appData.data.curArticleIndex !== articleIndex && !musicManager.paused) {
+      musicManager.stop()
+      this.setData({ isPlay: false })
+    } else if (appData.data.curArticleIndex === articleIndex && !musicManager.paused) {
+      this.setData({ isPlay: true })
+    }
+    appData.data.curArticleIndex = articleIndex
   },
 
   /**

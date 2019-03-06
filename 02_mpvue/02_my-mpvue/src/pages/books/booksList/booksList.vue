@@ -34,28 +34,43 @@
   }
 </script>
 
-<style lang="stylus" rel="stylesheet/stylus" scoped>
+<style lang="stylus" rel="stylesheet/stylus">
   $themeColor = #02a774
   .books_list_box
     width 100%
     background-color $themeColor
     li
       width 100%
+      margin-bottom 20rpx
       display flex
       align-items center
       justify-content space-between
       >div
         display flex
         align-items center
+        >div
+          width 200rpx
+          height 200rpx
+          .book_img
+            width 100%
+            height 100%
         .book_info
+          width 350rpx
+          height 180rpx
           font-size 28rpx
-          line-height 50rpx
           margin-left 20rpx
           display flex
           flex-direction column
+          justify-content space-around
+          .ellipsis
+            width 100%
+            overflow hidden
+            text-overflow ellipsis
+            white-space nowrap
         image
           width 200rpx
           height 200rpx
       .book_price
         margin-right 20rpx
+        width 150rpx
 </style>

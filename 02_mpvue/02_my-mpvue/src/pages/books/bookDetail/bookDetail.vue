@@ -11,9 +11,11 @@
       </div>
     </div>
     <div class="bottom_box">
-      <div class="detail_collect">
+      <button class="detail_collect" @click="collectThis(book.isbn10?book.isbn10:book.isbn13)"
+              @getuserinfo="clickLogin"
+              open-type="getUserInfo">
         收藏该文章
-      </div>
+      </button>
       <header class="intro_title">作者简介...</header>
       <p class="detail_intro" v-for="(intro, index) in book.author_intros" :key="index">{{intro}}</p>
       <header class="summary_title">内容简介...</header>
@@ -23,16 +25,46 @@
 </template>
 
 <script>
+  import myRequest from '../../../utils/myRequest'
+
   export default {
     data () {
       return {
-        book: {}
+        book: {},
+        openId: 0
       }
     },
     mounted () {
-      this.book = JSON.parse(this.$mp.query.book)
+      try{
+        this.book = JSON.parse(this.$mp.query.book)
+      }catch (e) {
+        console.log(e)
+        console.log("------------ 接口异常 -----------")
+        console.log(this.$mp.query.book)
+        console.log("------------ 对象是 -----------")
+        console.log(this.book)
+      }
       this.book.author_intros = this.book.author_intro.split("<br>")
       this.book.summarys = this.book.summary.split("<br>")
+      wx.getStorage({
+        key: "openId",
+        success: (response)=>{
+          this.openId = response.data
+        },
+        fail: (err)=>console.log(err)
+      })
+    },
+    methods: {
+      async collectThis (isbn) {
+        if(this.openId){
+          try{
+            const result = await myRequest("/collectBook", {isbn, openId:this.openId}, "GET")
+          }catch (e) {
+            console.log("Something wrong: ")
+            console.dir(e)
+          }
+        }
+      }
     }
   }
 </script>
