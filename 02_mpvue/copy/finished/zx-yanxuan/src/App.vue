@@ -3,7 +3,7 @@
     <router-view />
     <Footer v-show="$route.meta.showFooter"/>
   </div>
-
+-
 </template>
 
 <script>
