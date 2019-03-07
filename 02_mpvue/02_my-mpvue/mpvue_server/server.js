@@ -59,6 +59,7 @@ router.get("/collectBook", async (ctx, next)=>{
       await newBooks.save();    // 是一个 Promise 对象
     }else if(books.isbnArr.indexOf(isbn)<0){
       books.isbnArr.push(isbn)
+      // books.isbnArr.splice(books.isbnArr.indexOf("undefined"), 1)
       // userTable.isbnArr = [...new Set([...userTable.isbnArr])]    // 数组去重
       await books.save();    // 是一个 Promise 对象
     }

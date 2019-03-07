@@ -3,7 +3,7 @@ const promiseConnect = new Promise((resolve, reject)=>{
   const mongoose = require('mongoose');
   
   // 2. 连接本地数据库
-  mongoose.connect('mongodb://localhost:27017/userBooks', {useNewUrlParser: true});
+  mongoose.connect('mongodb://localhost:27017/userBooks', {useCreateIndex: true, useNewUrlParser: true});
   
   // 3. 绑定监听事件
   mongoose.connection.once('open', err => {

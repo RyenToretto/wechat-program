@@ -54,15 +54,15 @@
   }
 </script>
 
-<style lang="stylus" rel="stylesheet/stylus">
+<style lang="stylus" rel="stylesheet/stylus" scoped>
   $themeColor = #02a774
+  page
+    background-color: $themeColor
   .my_collection_box
     width 100%
     height 100%
-    background-color $themeColor
     .books_list_box
       width 100%
-      background-color $themeColor
       li
         width 100%
         margin-bottom 20rpx

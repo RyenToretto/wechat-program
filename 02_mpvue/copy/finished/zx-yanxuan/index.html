@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <title>zx-yanxuan</title>
+    <link rel="stylesheet" href="/static/css/react.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_990603_055l46sg8noa.css">
+    <script src="https://as.alipayobjects.com/g/component/fastclick/1.0.6/fastclick.js"></script>
+    <script>
+      if ('addEventListener' in document) {
+        document.addEventListener('DOMContentLoaded', function() {
+          FastClick.attach(document.body);
+        }, false);
+      }
+      if(!window.Promise) {
+        document.writeln('<script src="https://as.alipayobjects.com/g/component/es6-promise/3.2.2/es6-promise.min.js"'+'>'+'<'+'/'+'script>');
+      }
+      (function(){
+        //屏幕宽度
+        var width = document.documentElement.clientWidth;
+        //创建新的style
+        var styleNode = document.createElement('style');
+        //向style添加内容
+        styleNode.innerHTML = 'html{font-size: '+ width/10 +'px !important;}';
+        //style放在head标签中
+        document.head.appendChild(styleNode);
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  </body>
+</html>
